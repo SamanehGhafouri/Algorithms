@@ -3,7 +3,16 @@ import unittest
 
 
 def insertion_sort(items):
-    return None
+    for j in range(1, len(items)):
+        key = items[j]
+        i = j - 1
+        while i > -1 and items[i] > key:
+            items[i + 1] = items[i]
+            i = i - 1
+
+        items[i + 1] = key
+
+    return items
 
 # writing the failing test. we need to pass nonempty input.
 
