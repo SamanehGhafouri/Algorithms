@@ -30,6 +30,27 @@ def pre_order_traversal(node, values):
     pre_order_traversal(node.right_child, values)
 
 
+def in_order_traversal(node, values):
+
+    if node is None:
+        return
+
+    in_order_traversal(node.left_child, values)
+    print(node.value)
+    values.append(node.value)
+    in_order_traversal(node.right_child, values)
+
+
+def post_order_traversal(node, values):
+
+    if node is None:
+        return
+    post_order_traversal(node.left_child, values)
+    post_order_traversal(node.right_child, values)
+    print(node.value)
+    values.append(node.value)
+
+
 class TestTreeTraversal(unittest.TestCase):
 
     def test_pre(self):
@@ -37,3 +58,15 @@ class TestTreeTraversal(unittest.TestCase):
         actual = []
         pre_order_traversal(one, actual)
         self.assertEqual(expected, actual, "Faild PreOrder")
+
+    def test_inorder(self):
+        expected = [3, 2, 4, 1, 7, 6, 8, 5, 9]
+        actual = []
+        in_order_traversal(one, actual)
+        self.assertEqual(expected, actual, "inorder Failed")
+
+    def test_post(self):
+        expected = [3, 4, 2, 7, 8, 6, 9, 5, 1]
+        actual = []
+        post_order_traversal(one, actual)
+        self.assertEqual(expected, actual, "post Failed")
