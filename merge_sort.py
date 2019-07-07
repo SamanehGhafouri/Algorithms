@@ -6,8 +6,10 @@ def merge_sort(items: list):
     pass
 
 
+
 def merge(values, p_left_bound, q_mid_point, r_right_bound):
     pass
+
 
 # writing 2 tests functions
 
@@ -21,8 +23,8 @@ class TestMergeSort(unittest.TestCase):
         p = 0
         r = len(items)
         q = math.floor((p + r)/2)
-        actual = merge(items, p, q, r)
-        self.assertEqual(expected, actual, "Not merged, stupid.")
+        merge(items, p, q, r)
+        self.assertEqual(expected, items, "Not merged, stupid.")
 
     def test_nonempty_even_list(self):
         items = [2, 8, 1, 5, 9, 3, 7, 11]
