@@ -6,12 +6,44 @@ def merge_sort(items: list):
     pass
 
 
-
 def merge(values, p_left_bound, q_mid_point, r_right_bound):
-    pass
+    print(f"values = {values}")
+    print(f"p = {p_left_bound}")
+    print(f"q = {q_mid_point}")
+    print(f"r = {r_right_bound}")
+
+    p = p_left_bound
+    q = q_mid_point + 1
+    my_sorted = []
+
+    while p <= q_mid_point and q <= r_right_bound:
+
+        if values[p] > values[q]:
+            my_sorted.append(values[q])
+            q = q + 1
+        else:
+            my_sorted.append((values[p]))
+            p = p + 1
+
+    print(f" my_sorted = {my_sorted}")
 
 
-# writing 2 tests functions
+
+
+    print(f"my value = {values[p]}")
+    print(f" my q = {values[q]}")
+    print(f" my r = {values[r]}")
+
+
+
+
+
+
+
+
+
+
+# writing 2 tests function
 
 
 class TestMergeSort(unittest.TestCase):
@@ -21,7 +53,7 @@ class TestMergeSort(unittest.TestCase):
         items = [2, 3, 7, 8, 0, 1, 5, 9]
         expected = [0, 1, 2, 3, 5, 7, 8, 9]
         p = 0
-        r = len(items)
+        r = len(items) - 1
         q = math.floor((p + r)/2)
         merge(items, p, q, r)
         self.assertEqual(expected, items, "Not merged, stupid.")
